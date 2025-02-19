@@ -1,0 +1,27 @@
+<% layout("./layout/boilerplate") %>
+
+<body>
+  <h1>Filter WanderMate</h1>
+  <div class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1">
+    <% for (const list of listing) { %>
+
+    <a class="box" href="/listing/<%= list.id %>">
+      <div class="card listing-card mb-2">
+        <img
+          src="<%= list.image.url %>"
+          class="card-img-top"
+          style="height: 20rem"
+          alt="<%= list.title %>"
+        />
+
+        <div class="card-img-overlay"></div>
+        <div class="card-body">
+          <p class="card-text"><b><%= list.title %></b></p>
+          <span>&#8377;<%= list.price.toLocaleString("en-IN") %>/night</span>
+        </div>
+      </div>
+    </a>
+
+    <% } %>
+  </div>
+</body>

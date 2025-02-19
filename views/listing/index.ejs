@@ -1,0 +1,124 @@
+<% layout("./layout/boilerplate") %>
+
+<body>
+
+
+  <nav class="navbar navbar-expand-lg">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <div><i class="fa-solid fa-sliders"></i> filters</div>
+    </button>
+  
+    <div class="collapse navbar-collapse icons" id="navbarText">
+    <div class="icon">
+      <a href="/listing/filter/Rooms">
+        <i class="fa-solid fa-bed"></i>
+        <p>Rooms</p>
+      </a>
+    </div>
+
+    <div class="icon">
+      <a href="/listing/filter/farms">
+        <i class="fa-solid fa-cow"></i>
+        <p>farms</p>
+      </a>
+    </div>
+
+    <div class="icon">
+      <a href="/listing/filter/omg">
+        <i class="fa-brands fa-space-awesome"></i>
+        <p>OMG</p>
+      </a>
+    </div>
+
+    <div class="icon">
+      <a href="/listing/filter/CountrySide">
+        <i class="fa-solid fa-tree-city"></i>
+        <p>CountrySide</p>
+      </a>
+    </div>
+
+    <div class="icon">
+      <a href="/listing/filter/lake">
+        <i class="fa-solid fa-person-swimming"></i>
+        <p>lake</p>
+      </a>
+    </div>
+
+    <div class="icon">
+      <a href="/listing/filter/island">
+        <i class="fa-solid fa-ship"></i>
+        <p>island</p>
+      </a>
+    </div>
+
+    <div class="icon">
+      <a href="/listing/filter/artic">
+        <i class="fa-regular fa-snowflake"></i>
+        <p>artic</p>
+      </a>
+    </div>
+
+    <div class="icon">
+      <a href="/listing/filter/design">
+        <i class="fa-solid fa-hat-cowboy"></i>
+        <p>design</p>
+      </a>
+    </div>
+
+    <div class="icon">
+      <a href="/listing/filter/surfing">
+        <i class="fa-solid fa-person-snowboarding"></i>
+        <p>surfing</p>
+      </a>
+    </div>
+
+    <div class="icon">
+      <a href="/listing/filter/castel">
+        <i class="fa-solid fa-chess-rook"></i>
+        <p>castel</p>
+      </a>
+    </div>
+
+    <div class="switch">
+    <div class="form-check form-switch form-check-reverse" >
+      <input
+        class="form-check-input"
+        type="checkbox"
+        role="switch"
+        id="flexSwitchCheckDefault"
+      />
+      <label class="form-check-label" for="flexSwitchCheckDefault"
+        >Display  without taxes</label
+      >
+    </div>
+  </div>
+  </div>
+  
+</nav>
+  
+
+  <div class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1">
+    <% for (const list of listing) { %>
+    <a class="box" href="/listing/<%= list.id %>">
+      <div class="card listing-card mb-2">
+        
+        <img
+          src="<%= list.image.url %>"
+          class="card-img-top"
+          style="height: 20rem"
+          alt="<%= list.title %>"
+        />
+
+        <div class="card-img-overlay"></div>
+        <div class="card-body">
+          <p class="card-text"><b><%= list.title %></b></p>
+          <span><%= list.price.toLocaleString("en-IN") %>/night</span>
+          <p class="card-text tax"><b>+18% gst</b></p>
+        </div>
+      </div></a
+    >
+    <% } %>
+  </div>
+
+
+</body>
